@@ -32,7 +32,7 @@
   </div>
 
    <h1> Thankyou, Happy Learning </h1>
-   <h1> Adrian Pazon </h1>
+   <h1> Adrian D. Pazon </h1>
 
 
   
