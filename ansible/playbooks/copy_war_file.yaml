@@ -1,0 +1,12 @@
+---
+- hosts: dockerhost
+  tasks:
+    - name: Delete old war file
+      file:
+        state: absent
+        path: /opt/docker/webapp.war
+
+    - name: copy war file to docker host
+      copy: 
+        src: /opt/docker/webapp.war
+        dest: /opt/docker/webapp.war

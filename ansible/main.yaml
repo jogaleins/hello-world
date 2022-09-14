@@ -1,0 +1,6 @@
+---
+- import_playbook: playbooks/copy_war_file.yaml
+- import_playbook: playbooks/build_and_push_dockerhub.yaml
+#- import_playbook: playbooks/create_and_run_container.yaml
+- import_playbook: playbooks/deploy_to_kubernetes.yaml
+

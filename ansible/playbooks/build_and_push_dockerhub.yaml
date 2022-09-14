@@ -1,0 +1,37 @@
+
+---
+- hosts: dockerhost
+  become: no
+
+  tasks:
+    - name: stop and remove container
+      containers.podman.podman_container:
+        name: regapp-container
+        state: absent
+      ignore_errors: True
+
+
+    - name: Delete existing image dockerhub
+      containers.podman.podman_image:
+        state: absent
+        name: docker.io/jogaleins/regapp
+        tag: latest
+   
+    - name: Delete local image
+      containers.podman.podman_image:
+        state: absent
+        name: regapp
+        tag: latest
+
+    - name: Build a container image
+      containers.podman.podman_image:
+        name: regapp
+        path: /opt/docker
+        push:  yes
+        auth_file: /opt/docker/auth.json
+        push_args:
+          dest: docker.io/jogaleins
+        build:
+          format: docker
+
+   

@@ -1,0 +1,15 @@
+---
+- hosts: dockerhost
+  
+  tasks:
+  - name: Pull latest image
+    containers.podman.podman_image:
+      name: docker.io/jogaleins/regapp:latest
+
+  - name: Run container
+    containers.podman.podman_container:
+      name: regapp-container
+      image: docker.io/jogaleins/regapp:latest
+      state: started
+      ports:
+        - "8090:8080"

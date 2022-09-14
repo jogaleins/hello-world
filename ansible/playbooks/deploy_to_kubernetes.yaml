@@ -1,0 +1,12 @@
+---
+- hosts: k3s
+
+  tasks:
+    - name: Create Kubernetes regapp deployment
+      command: kubectl apply -f ~/deploy_regapp.yaml
+
+    - name: Create kubernetes regapp service
+      command: kubectl apply -f ~/service_regapp.yaml
+
+    - name: Rollout regapp deployment
+      command: kubectl rollout restart deployment/regapp
