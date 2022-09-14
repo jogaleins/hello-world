@@ -24,5 +24,16 @@ pipeline {
             sh 'mvn clean install'
         }
     }
+    stage('Deploy'){
+        steps{
+                sh '''
+                    pwd
+                    hostname
+                    ssh centos@192.168.2.142 date
+                '''
+    
+        }
+    }
+
     }
   }
