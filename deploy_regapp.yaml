@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: regapp
+  name: regapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: regapp
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: regapp
+    spec:
+      containers:
+      - image: jogaleins/regapp:latest
+        name: regapp
+        ports:
+        - containerPort: 8080
+        resources: {}
+status: {}
