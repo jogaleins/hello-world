@@ -18,6 +18,7 @@ pipeline {
             echo "PATH = ${M2_HOME}/bin:$PATH"
             echo "M2_HOME = ${M2_HOME}"
         }
+    }
     stage('Build'){
         steps{
             sh 'mvn clean install'
@@ -25,7 +26,3 @@ pipeline {
     }
     }
   }
-
-
-
-}
