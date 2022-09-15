@@ -28,7 +28,6 @@
     <button type="submit" class="registerbtn">Register</button>
   </div>
   <h1> Adrian D. Pazon </h1>
-  <h1> Suneel </h1>
   <div class="container signin">
     <p>Already have an account? <a href="#">Sign in</a>.</p>
   </div>
