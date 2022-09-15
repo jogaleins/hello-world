@@ -32,6 +32,7 @@ pipeline {
                 sh 'ssh -o StrictHostKeyChecking=no -l centos 192.168.2.142 date'
                 sh 'scp -o StrictHostKeyChecking=no ${WORKSPACE}/webapp/target/webapp.war centos@192.168.2.142:/opt/docker/'
                 sh 'scp -pr -o StrictHostKeyChecking=no ${WORKSPACE}/ansible centos@192.168.2.142:/opt/docker/'
+                sh 'scp -pr -o StrictHostKeyChecking=no ${WORKSPACE}/kubernetes centos@192.168.2.142:/opt/kubernetes/'
                 sh 'ssh -o StrictHostKeyChecking=no -l centos 192.168.2.142 ansible-playbook -i /opt/docker/ansible/inventory.ini /opt/docker/ansible/main.yaml'
 
                 }
