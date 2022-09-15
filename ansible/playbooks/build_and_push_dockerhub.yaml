@@ -29,7 +29,7 @@
         path: /opt/docker
         push:  yes
         auth_file: /opt/docker/auth.json
-        tag: {{ imagetag }}
+        tag: "{{ imagetag }}"
         push_args:
           dest: docker.io/jogaleins
         build:
