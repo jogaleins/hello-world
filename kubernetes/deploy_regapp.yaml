@@ -18,7 +18,7 @@ spec:
         app: regapp
     spec:
       containers:
-      - image: jogaleins/regapp:latest
+      - image: jogaleins/regapp:<TAG>
         name: regapp
         ports:
         - containerPort: 8080
