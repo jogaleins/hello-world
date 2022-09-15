@@ -28,11 +28,9 @@ pipeline {
         steps{
                 sshagent(credentials: ['jenkins-centos-sshkey']) {
 
-                sh 'pwd'
-                sh 'hostname'
-                sh 'whoami'
+                sh 'pwd;hostname;whoami'
                 sh 'ssh -o StrictHostKeyChecking=no -l centos 192.168.2.142 date'
-                 
+                sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/RegappCICD/webapp/target/webapp.war centos@192.168.2.142:/opt/docker/'
                 }
         }
     }
