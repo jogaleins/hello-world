@@ -8,11 +8,13 @@ pipeline {
     jdk "openjdk-11"
   }
   stages{
+    /*
     stage('Checkout SCM'){
         steps {
             git branch: 'master', url: 'https://github.com/jogaleins/hello-world.git'
         }
     }
+    */
     stage('Initialize'){
         steps {
             echo "PATH = ${M2_HOME}/bin:$PATH"
