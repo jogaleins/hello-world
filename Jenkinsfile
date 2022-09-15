@@ -30,7 +30,8 @@ pipeline {
 
                 sh 'pwd;hostname;whoami'
                 sh 'ssh -o StrictHostKeyChecking=no -l centos 192.168.2.142 date'
-                sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/RegappCICD/webapp/target/webapp.war centos@192.168.2.142:/opt/docker/'
+                sh 'scp -o StrictHostKeyChecking=no ${WORKSPACE}/webapp/target/webapp.war centos@192.168.2.142:/opt/docker/'
+                sh 'scp -pr -o StrictHostKeyChecking=no ${WORKSPACE}/ansible centos@192.168.2.142:/opt/docker/'
                 sh 'ssh -o StrictHostKeyChecking=no -l centos 192.168.2.142 ansible-playbook -i /opt/docker/ansible/inventory.ini /opt/docker/ansible/main.yaml'
 
                 }
