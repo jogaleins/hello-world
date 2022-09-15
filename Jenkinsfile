@@ -26,12 +26,14 @@ pipeline {
     }
     stage('Deploy'){
         steps{
+                sshagent(credentials: ['jenkins-centos-sshkey']) {
+
                 sh '''
                     pwd
                     hostname
                     ssh centos@192.168.2.142 date
                 '''
-    
+                }
         }
     }
 
