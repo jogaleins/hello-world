@@ -24,13 +24,15 @@ pipeline {
             sh 'mvn clean install'
         }
     }
-    stage('Deploy'){
+    stage('Publish and Deploy'){
         steps{
                 sshagent(credentials: ['jenkins-centos-sshkey']) {
 
                 sh 'pwd;hostname;whoami'
                 sh 'ssh -o StrictHostKeyChecking=no -l centos 192.168.2.142 date'
                 sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/RegappCICD/webapp/target/webapp.war centos@192.168.2.142:/opt/docker/'
+                sh 'ssh -o StrictHostKeyChecking=no -l centos 192.168.2.142 ansible-playbook -i /opt/docker/ansible/inventory.ini /opt/docker/ansible/main.yaml'
+
                 }
         }
     }
