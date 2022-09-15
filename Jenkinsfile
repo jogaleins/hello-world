@@ -30,7 +30,8 @@ pipeline {
 
                 sh 'pwd'
                 sh 'hostname'
-                sh 'ssh centos@192.168.2.142 date'
+                sh 'whoami'
+                sh 'ssh -o StrictHostKeyChecking=no -l centos 192.168.2.142 date'
                  
                 }
         }
